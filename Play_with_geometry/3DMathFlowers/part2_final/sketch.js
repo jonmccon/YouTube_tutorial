@@ -136,6 +136,43 @@ function draw(){
   bumpNum.html("Bumpiness number: " + bumpNumSlider.value());
 
   v = [];
+
+  //
+  // Midi controls for Flower variables
+  //
+  // Row 4 - Number of Petals
+  if(channel == 114) {
+    pNum = Math.floor(map(value, 0, 127, 1, 20));
+
+  // Row 1 - Diameter
+  } else if(channel == 104) {
+    fD = map(value, 0, 127, 20, 250);
+  // Petal Length    
+  } else if(channel == 105) {
+    pLen = map(value, 0, 127, 0, 300);  
+
+  // Row 2 - Petal Sharpeness
+  } else if(channel == 109) {
+    pSharp = map(value, 0, 127, 0, 10);
+  // Flower Height
+  } else if(channel == 108) {
+    fHeight = map(value, 0, 127, 0, 600);
+
+  // Curve 1
+  } else if(channel == 107) {
+    curve1 = map(value, 0, 127, 0, 4);
+  // Curve 2
+  } else if(channel == 106) {
+    curve2 = map(value, 0, 127, 0, 1);
+
+  // Row 3 - Bumpiness
+  } else if(channel == 113) {
+    b = map(value, 0, 127, 0, 5);
+  // Bumpiness number
+  } else if(channel == 112) {
+    bNum = map(value, 0, 127, 0, 20);
+  }
+
 }
 
 function vShape(A, r, a, b, c){

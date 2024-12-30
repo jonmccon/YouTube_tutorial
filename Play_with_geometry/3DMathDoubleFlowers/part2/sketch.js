@@ -19,7 +19,7 @@ function setup(){
 
   opening_ = createDiv();
   opening_.class('valueDisplay');
-  opening = createSlider(1, 10, 2, 0.1);
+  opening = createSlider(1, 10, 3, 0.1);
   opening.class('Slider');
 
   vDensity_ = createDiv();
@@ -65,7 +65,7 @@ function draw(){
   }
 
   for(let r = 0; r < v.length; r++){
-    fill(340, 100, -20+r*r_D*120);
+    fill(240, 70, -20+r*r_D*120);
     for(let theta = 0; theta < v[r].length; theta++){
 	     if(r < v.length-1 && theta < v[r].length-1){
          beginShape();
@@ -85,4 +85,33 @@ function draw(){
   curve2_.html("Curvature 2: " + curve2.value());
 
   v = [];
+
+  //
+  // Midi controls for Flower variables
+  //
+  // Row 4 - Flower Opening
+  if(channel == 114) {
+    opening = map(value, 0, 127, 1, 10); 
+
+  // Row 1 - Vertical Density
+  } else if(channel == 104) {
+    vDensity = map(value, 0, 127, 1, 20);    
+  // } else if(channel == 105) {
+  //   W2 = Math.ceil(map(value, 0, 127, 1, 20)) * 2;  
+
+  // Row 2 - Curves
+  } else if(channel == 109) {
+    curve1 = map(value, 0, 127, -6, 6);
+  } else if(channel == 108) {
+    curve2 = map(value, 0, 127, 0.5, 1.5);
+  // } else if(channel == 107) {
+  //   L3 = map(value, 0, 127, 1, 200);
+
+  // // Row 3 - Sine Wave
+  // } else if(channel == 113) {
+  //   S1 = map(value, 0, 127, 1, 15);
+  // } else if(channel == 112) {
+  //   S2 = map(value, 0, 127, -100, 100);
+  }
+
 }

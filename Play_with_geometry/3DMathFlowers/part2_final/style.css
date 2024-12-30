@@ -1,5 +1,5 @@
 body{
-  background-color:#316745;
+  background-color:#ffffff;
 }
 
 .canvas{
@@ -11,7 +11,7 @@ body{
 
 .valueDisplay{
   position: relative;
-  color: #d8e698;
+  color: #000000;
   margin-left: 720px;
   font-family: Helvetica, Arial, sans-serif;
   font-weight:600;
@@ -28,7 +28,7 @@ body{
   height:16px;
   width:200px;
   border-radius: 8px;
-  border: 2px solid #d8e698;
+  border: 2px solid #000000;
 }
 
 .Slider::-webkit-slider-thumb {
@@ -36,6 +36,6 @@ body{
   width:12px;
   height:12px;
   border-radius: 6px;
-  background: #d8e698;
+  background: #000000;
   outline: none;
 }
